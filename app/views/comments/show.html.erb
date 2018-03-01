@@ -10,5 +10,14 @@
   <%= @comment.comment_entry %>
 </p>
 
-<%= link_to 'Edit', edit_comment_path(@comment) %> |
+<%= link_to 'Edit', edit_comment_path(@comment) %>
+
+<div id="comments">
+  <%= render 'comment/form', comment: @comment %>
+
+  <% @post.comments.each do |comment| %>
+  <p><%= comment.author %></p>
+  <p><%= comment.content %></p>
+  <% end %>
+</div>
 <%= link_to 'Back', comments_path %>
